@@ -1,0 +1,10 @@
+asgiref==3.3.1
+Django==3.1.5
+django-rest-framework==0.1.0
+djangorestframework==3.12.2
+importlib-metadata==3.4.0
+Markdown==3.3.3
+pytz==2020.5
+sqlparse==0.4.1
+typing-extensions==3.7.4.3
+zipp==3.4.0
