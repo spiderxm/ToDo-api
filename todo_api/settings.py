@@ -9,6 +9,7 @@ https://docs.djangoproject.com/en/3.1/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.1/ref/settings/
 """
+import os
 
 from pathlib import Path
 
@@ -21,6 +22,8 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = '05k%l!*gs-sj_*vf+f^o7%z)9e9)qf(ww-tjzvqfynbd^)_dj#'
 
+# JWT Secret KEY:
+JWT_SECRET_KEY = os.environ.get('JWT_SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
@@ -36,7 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'authapi',
-    'todo_api',
+    'todoapi',
     'rest_framework'
 ]
 
@@ -49,7 +52,11 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
-
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'authapi.backends.JWTAuthentication',
+    )
+}
 ROOT_URLCONF = 'todo_api.urls'
 
 TEMPLATES = [
