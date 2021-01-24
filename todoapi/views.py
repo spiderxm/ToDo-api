@@ -8,7 +8,7 @@ from rest_framework import permissions
 
 class ToDoList(ListCreateAPIView):
     """
-    Methods on For ToDo
+    List and Create Todo's
     """
 
     serializer_class = ToDoSerializer
